@@ -51,16 +51,8 @@ int main() {
     
     printf("%d\n", count - 1);
 
-    // first pass: connecting lone vertices
+    // re-connect redundant edges
     int index = 0;
-    for (int i = 1; i <= n; i++) {
-        if (exist[i]) continue;
-        Union(vec[index].pr.first, i, parent);
-        printf("%d %d %d\n", vec[index].op, vec[index].pr.first, i);
-        index++;
-    }
-
-    // second pass: connecting each components with vertex 1
     int i = 2;
     while (i <= n) {
         if (find(i, parent) == find(1, parent)) {
