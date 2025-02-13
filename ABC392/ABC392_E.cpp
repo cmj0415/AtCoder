@@ -61,13 +61,16 @@ int main() {
     }
 
     // second pass: connecting each components with vertex 1
-    for (int i = 2; i <= n; i++) {
+    int i = 2;
+    while (i <= n) {
         if (find(i, parent) == find(1, parent)) {
+            i++;
             continue;
         } 
         if (find(vec[index].pr.first, parent) == find(1, parent)) {
             Union(vec[index].pr.first, i, parent);
             printf("%d %d %d\n", vec[index].op, vec[index].pr.first, i);
+            i++;
         } else {
             Union(1, vec[index].pr.first, parent);
             printf("%d %d %d\n", vec[index].op, vec[index].pr.first, 1);
